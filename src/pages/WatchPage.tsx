@@ -2,7 +2,6 @@ import { useState, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Player from "video.js/dist/types/player";
 import { Box, Stack, Typography } from "@mui/material";
-import { SliderUnstyledOwnProps } from "@mui/base/SliderUnstyled";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
@@ -20,6 +19,8 @@ import VideoJSPlayer from "src/components/watch/VideoJSPlayer";
 import PlayerSeekbar from "src/components/watch/PlayerSeekbar";
 import PlayerControlButton from "src/components/watch/PlayerControlButton";
 import MainLoadingScreen from "src/components/MainLoadingScreen";
+
+import { SliderTypeMap } from "@mui/material/Slider";
 
 export function Component() {
   const playerRef = useRef<Player | null>(null);
@@ -72,13 +73,13 @@ export function Component() {
 
     player.on("timeupdate", () => {
       setPlayerState((draft) => {
-        return { ...draft, playedSeconds: player.currentTime() };
+        return { ...draft, playedSeconds: player.currentTime() ?? 0 };
       });
     });
 
     player.one("durationchange", () => {
       setPlayerInitialized(true);
-      setPlayerState((draft) => ({ ...draft, duration: player.duration() }));
+      setPlayerState((draft) => ({ ...draft, duration: player.duration() ?? 0 }));
     });
 
     playerRef.current = player;
@@ -88,10 +89,10 @@ export function Component() {
     });
   };
 
-  const handleVolumeChange: SliderUnstyledOwnProps["onChange"] = (_, value) => {
-    playerRef.current?.volume((value as number) / 100);
+  const handleVolumeChange: SliderTypeMap["props"]["onChange"] = (event: any, value: number | number[]) => {
+    playerRef.current?.volume(Array.isArray(value) ? value[0] / 100 : value / 100);
     setPlayerState((draft) => {
-      return { ...draft, volume: (value as number) / 100 };
+      return { ...draft, volume: Array.isArray(value) ? value[0] / 100 : value / 100 };
     });
   };
 

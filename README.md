@@ -47,6 +47,13 @@
 
 ## Prerequests
 
+### Yarn Install
+Make sure npm packages are installed with yarn to generate `yarn.lock` file.
+```
+yarn install
+```
+
+### The Movie Database
 - Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
   Because I use its free API to consume movie/tv data.
 - And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
