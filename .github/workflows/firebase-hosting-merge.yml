@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
         env:
-          VITE_APP_API_ENDPOINT_URL: '${{ secrets.VITE_APP_API_ENDPOINT_URL }}'
-          VITE_APP_TMDB_V3_API_KEY: '${{ secrets.VITE_APP_TMDB_V3_API_KEY }}'
+          VITE_APP_API_ENDPOINT_URL: '${{ secrets.https://api.themoviedb.org/3 }}'
+          VITE_APP_TMDB_V3_API_KEY: '${{ secrets.c8cf932d81c429b17117783e56e9f41f }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          repoToken: '${{ secrets.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 }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEBSITES_F0426 }}'
           channelId: live
           projectId: websites-f0426
