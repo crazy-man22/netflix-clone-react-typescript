@@ -1,95 +1,121 @@
-<div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
-    <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
-  </a>
+# Netflix Clone Deployment - DevSecOps Project
 
-  <h3 align="center">Netflix Clone</h3>
+<img src='dist/assets/netflix-logo.png' alt='Netflix'>
 
-  <p align="center">
-    <a href="https://netflix-clone-react-typescript.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Request Feature</a>
-  </p>
-</div>
+I got this code from [Github Netflix Clone](https://github.com/jason-liu22/netflix-clone-react-typescript). He did a great job. I just forked it and added:
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#prerequests">Prerequests</a>
-    </li>
-    <li>
-      <a href="#which-features-this-project-deals-with">Which features this project deals with</a>
-    </li>
-    <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
-  </ol>
-</details>
+1. Improved Dockerfile
+2. Resolved Yarn Lock Issues
+3. Added Jenkinfile
+4. Added Kubernetes Manifets
 
-<br />
+I am doing this **DevSecOps Project** for better understand of different softwares using differnet new and modern techniques. If you want to colloborate then you can visit my 
 
-<div align="center">
-  <img src="./public/assets/home-page.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Home Page</p>
-  <img src="./public/assets/mini-portal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Mini Portal</p>
-  <img src="./public/assets/detail-modal.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Detail Modal</p>
-  <img src="./public/assets/grid-genre.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Grid Genre Page</p>
-  <img src="./public/assets/watch.png" alt="Logo" width="100%" height="100%">
-  <p align="center">Watch Page with customer contol bar</p>
-</div>
+- [LinkedIn](https://www.linkedin.com/in/muhammadabdullahabrar)
+- [LinkedIn](https://www.github.com/Abdullah-0-3)
+- **Email:** abdullahabrar4843@gmail.com
+- **Phone Number:** +(92) 3095306826
 
-## Prerequests
+I hope if you try this project you will get a better understanding of projects and using new techniques like Grafana and Prometheus. 
 
-- Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
-  Because I use its free API to consume movie/tv data.
-- And then follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create API Key
-- Finally, if you use v3 of TMDB API, create a file named `.env`, and copy and paste the content of `.env.example`.
-  And then paste the API Key you just created.
+---
+### Tools Used
 
-## Which features this project deal with
+- Jenkins
+- Docker
+- Kuberentes
+- ArgoCD
+- OWASP
+- SonarCube
+- Trivy
+- Prometheus
+- Grafana
 
-- How to create and use [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
-- How to use [Context](https://reactjs.org/docs/context.html) and its provider
-- How to use lazy and Suspense for [Code-Splitting](https://reactjs.org/docs/code-splitting.html)
-- How to use a new [lazy](https://reactrouter.com/en/main/route/lazy) feature of react-router to reduce bundle size.
-- How to use data [loader](https://reactrouter.com/en/main/route/loader) of react-router, and how to use redux dispatch in the loader to fetch data before rendering component.
-- How to use [Portal](https://reactjs.org/docs/portals.html)
-- How to use [Fowarding Refs](https://reactjs.org/docs/forwarding-refs.html) to make components reusuable
-- How to create and use [HOC](https://reactjs.org/docs/higher-order-components.html)
-- How to customize default theme of [MUI](https://mui.com/)
-- How to use [RTK](https://redux-toolkit.js.org/introduction/getting-started)
-- How to use [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
-- How to customize default classname of [MUI](https://mui.com/material-ui/experimental-api/classname-generator)
-- Infinite Scrolling(using [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- How to make awesome carousel using [slick-carousel](https://react-slick.neostack.com)
+---
+### DevSecOps Project Architecture
 
-## Third Party libraries used except for React and RTK
+<img src='public/assets/Project.png' alt='DevSecOps'>
 
-- [react-router-dom@v6.9](https://reactrouter.com/en/main)
-- [MUI(Material UI)](https://mui.com/)
-- [framer-motion](https://www.framer.com/docs/)
-- [video.js](https://videojs.com)
-- [react-slick](https://react-slick.neostack.com/)
+From Netflix Code to Github. Github to Jenkins and using OWASP, SonaryCube and Trivy to check Dependencies and and Pushing made images to Dockerhub.
 
-## Install with Docker
+Using Dockerhub image to use for K8s using from ArgoCD. After that integreating it to Prometheus and using Grafana Dashboards to view the Analytics
 
-```sh
-docker build --build-arg TMDB_V3_API_KEY=your_api_key_here -t netflix-clone .
+---
+### Overview of Neflix Clone
 
-docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
-```
+<img src='dist/assets/home-page.png' alt='Home Page'>
 
-## Todo
+<img src='dist/assets/mini-portal.png' alt='Home Page'>
 
-- Make the animation of video card portal more similar to Netflix.
-- Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in render of the component. there are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent the re-renders from these behaviours. In addition to them, there may be several performance issues.
-- Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's nor ready to use right now. it just support Next.js, and they plan to support all others as soon as possible. so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
-- Add accessibilities for better UX.
-- Add Tests.
+---
+### Prerequisite
+
+1. Clone the Repository
+  ```
+  git clone https://github.com/Abdullah-0-3/NetflixCloneTypescript.git
+  ```
+2. Install Dependencies
+  You should be in the place where you cloned the repo
+  ```
+  cd downloads
+  chmod +x install_kubectl.sh
+  chmod +x install_kind.sh
+  chmod +x install_helm.sh
+  ```
+  After this process run the scripts
+  ```
+  sudo ./install_kubectl.sh
+  sudo ./install_kind.sh
+  sudo ./install_helm.sh
+  ```
+  Checking if it runs
+  ```
+  kubectl version --client
+  kind version
+  kind create cluster --config kind-config.yml
+  kubectl get nodes
+  ```
+  If did not work then check if **Docker** is installed.
+
+3. Go to [TMDB](https://www.themoviedb.org/).
+    - Rgister an Account
+    - Log into you Account
+    - Go to Settings
+    - Genereate and API by filling all the requirements for the API Key
+    - Copy and Store it in a safe spot.
+4. Check if you are ready to go by checking if Kuberentes Nodes are Ready, Linux is set and make sure you update it
+
+> (Recomendation) Make sure you give your machine 8GB Ram and 15GB Hard Disk.
+
+---
+### Jenkins Setup
+
+1. Install Java
+  ```
+  sudo yum update -y
+  sudo yum install fontconfig java-17-openjdk -y
+  java --version
+  ```
+2. Get Go with Jenkins
+  ```
+  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+  sudo yum install jenkins -y
+  ```
+3. Start Jenkins
+  ```
+  sudo systemctl start jenkins
+  sudo systemctl status jenkins
+  ```
+  It runs on port 8080
+4. Open Ports
+  If you are using AWS Instance Security Bind your ports
+  ```
+  sudo firewall-cmd --permanent --add-port=8080/tcp --zone=public
+  sudo firewall-cmd --reload
+  ```
+5. You can use jenkins is your Browser
+6. Create a Pipeline and use it for further configuration
+7. Setup your Jenkins Pipeline for that you need to learn Jenkins
+
+---
