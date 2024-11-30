@@ -119,3 +119,39 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
 7. Setup your Jenkins Pipeline for that you need to learn Jenkins
 
 ---
+### ArgoCD Setup
+
+> Kubernetes Cluster should be Running
+1. Create ArgoCD Namespace
+  ```
+  kubectl create namespace argocd
+  ```
+2. Apply ArgoCD Manifets
+  ```
+  kubectl apply -n argocd -f kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  ```
+3. Check ArgoCD Service
+  ```
+  kubectl get svc -n argocd
+  ```
+4. Service to NodePort
+  ```
+  kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+  ```
+5. Expose Port 8443
+  ```
+  kubectl port-forward -n argocd service/argocd-server 8443:443 --address=0.0.0.0 &
+  ```
+6. Firewall Expose
+  ```
+  sudo firewall-cmd --permanent --zone=public --add-port=8443/tcp
+  sudo firewall-cmd --reload
+  ```
+7. Get ArgoCD Password
+  ```
+  kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+  ```
+  Use this in Login to ArgoCD
+8. You can use ArgoCD
+
+---
