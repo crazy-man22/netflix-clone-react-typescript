@@ -54,7 +54,8 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
   git clone https://github.com/Abdullah-0-3/NetflixCloneTypescript.git
   ```
-2. Install Dependencies
+2. Install [Docker](#docker-installation)
+3. Install Dependencies
   You should be in the place where you cloned the repo
   ```
   cd downloads
@@ -77,13 +78,13 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
   If did not work then check if **Docker** is installed.
 
-3. Go to [TMDB](https://www.themoviedb.org/).
+4. Go to [TMDB](https://www.themoviedb.org/).
     - Rgister an Account
     - Log into you Account
     - Go to Settings
     - Genereate and API by filling all the requirements for the API Key
     - Copy and Store it in a safe spot.
-4. Check if you are ready to go by checking if Kuberentes Nodes are Ready, Linux is set and make sure you update it
+5. Check if you are ready to go by checking if Kuberentes Nodes are Ready, Linux is set and make sure you update it
 
 > (Recomendation) Make sure you give your machine 8GB Ram and 15GB Hard Disk.
 
