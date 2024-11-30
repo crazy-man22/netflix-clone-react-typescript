@@ -1,6 +1,6 @@
 # Netflix Clone Deployment - DevSecOps Project
 
-<img src='dist/assets/netflix-logo.png' alt='Netflix'>
+<img src='public/assets/netflix-logo.png' alt='Netflix'>
 
 I got this code from [Github Netflix Clone](https://github.com/jason-liu22/netflix-clone-react-typescript). He did a great job. I just forked it and added:
 
@@ -43,9 +43,9 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
 ---
 ### Overview of Neflix Clone
 
-<img src='dist/assets/home-page.png' alt='Home Page'>
+<img src='public/assets/home-page.png' alt='Home Page'>
 
-<img src='dist/assets/mini-portal.png' alt='Home Page'>
+<img src='public/assets/mini-portal.png' alt='Home Page'>
 
 ---
 ### Prerequisite
