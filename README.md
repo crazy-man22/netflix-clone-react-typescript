@@ -88,19 +88,45 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
 > (Recomendation) Make sure you give your machine 8GB Ram and 15GB Hard Disk.
 
 ---
+### Docker Installation
+1. Update System
+  ```
+  sudo dnf update -y
+  ```
+2. Install Packages
+  ```
+  sudo dnf install -y dnf-utils
+  sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  ```
+3. Download Docker
+  ```
+  sudo dnf install -y docker-ce docker-ce-cli containerd.io
+  docker --version
+  ```
+4. Start Docker
+  ```
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  ```
+5. Give Permissions
+  ```
+  sudo usermod -aG docker $USER
+  ```
+
+---
 ### Jenkins Setup
 
 1. Install Java
   ```
-  sudo yum update -y
-  sudo yum install fontconfig java-17-openjdk -y
+  sudo dnf update -y
+  sudo dnf install fontconfig java-17-openjdk -y
   java --version
   ```
 2. Get Go with Jenkins
   ```
   sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
   sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-  sudo yum install jenkins -y
+  sudo dnf install jenkins -y
   ```
 3. Start Jenkins
   ```
@@ -115,6 +141,9 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   sudo firewall-cmd --reload
   ```
 5. You can use jenkins is your Browser
+  ```
+  sudo usermod -aG docker jenkins
+  ```
 6. Create a Pipeline and use it for further configuration
 7. Setup your Jenkins Pipeline for that you need to learn Jenkins
 
@@ -152,6 +181,7 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
   ```
   Use this in Login to ArgoCD
+  
 8. You can use ArgoCD
 
 ---
