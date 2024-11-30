@@ -12,7 +12,7 @@ I got this code from [Github Netflix Clone](https://github.com/jason-liu22/netfl
 I am doing this **DevSecOps Project** for better understand of different softwares using differnet new and modern techniques. If you want to colloborate then you can visit my 
 
 - [LinkedIn](https://www.linkedin.com/in/muhammadabdullahabrar)
-- [LinkedIn](https://www.github.com/Abdullah-0-3)
+- [Github](https://www.github.com/Abdullah-0-3)
 - **Email:** abdullahabrar4843@gmail.com
 - **Phone Number:** +(92) 3095306826
 
@@ -147,6 +147,26 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
 6. Create a Pipeline and use it for further configuration
 7. Setup your Jenkins Pipeline for that you need to learn Jenkins
+
+---
+### SonarCube Setup
+1. Start Docker
+  ```
+  sudo systemctl start docker
+  ```
+2. Pull SonarCube image
+  ```
+  docker pull sonarqube:lts-community
+  ```
+3. Run SonarCube
+  ```
+  docker run sonarqube -d -p 9000:9000 sonarqube:lts-community
+  ```
+4. Allow Firewall
+  ```
+  sudo firewall-cmd --permanent --zone=public --add-port=9000/tcp
+  sudo firewall-cmd --reload
+5. Ready to GO!
 
 ---
 ### ArgoCD Setup
