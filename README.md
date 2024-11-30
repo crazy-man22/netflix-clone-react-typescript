@@ -166,7 +166,30 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
   sudo firewall-cmd --permanent --zone=public --add-port=9000/tcp
   sudo firewall-cmd --reload
+  ```
 5. Ready to GO!
+
+---
+### Trivy Setup
+1. Update System
+  ```
+  sudo dnf update -y
+  ```
+2. Import Packages
+  ```
+  sudo rpm --import https://aquasecurity.github.io/trivy-repo/aqua.key
+  sudo curl -sL -o /etc/yum.repos.d/trivy.repo https://aquasecurity.github.io/trivy-repo/rpm/releases.repo
+  ```
+3. Download Trviy
+  ```
+  sudo dnf install -y trivy
+  ```
+4. Check Trivy Version
+  ```
+  trivy --version
+  ```
+5. Done!!!!
+
 
 ---
 ### ArgoCD Setup
