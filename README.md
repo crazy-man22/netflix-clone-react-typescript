@@ -160,7 +160,7 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
 3. Run SonarCube
   ```
-  docker run sonarqube -d -p 9000:9000 sonarqube:lts-community
+  docker run --name sonarqube -d -p 9000:9000 sonarqube:lts-community
   ```
 4. Allow Firewall
   ```
@@ -177,19 +177,26 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
 2. Import Packages
   ```
-  sudo rpm --import https://aquasecurity.github.io/trivy-repo/aqua.key
-  sudo curl -sL -o /etc/yum.repos.d/trivy.repo https://aquasecurity.github.io/trivy-repo/rpm/releases.repo
+  sudo vim /etc/yum.repos.d/trivy.repo
+  ```
+  Paste it there
+  ```
+  [trivy]
+  name=Trivy repository
+  baseurl=https://aquasecurity.github.io/trivy-repo/rpm/releases/$releasever/$basearch/
+  gpgcheck=0
+  enabled=1
   ```
 3. Download Trviy
   ```
-  sudo dnf install -y trivy
+  sudo dnf -y update
+  sudo dnf -y install trivy
   ```
 4. Check Trivy Version
   ```
   trivy --version
   ```
 5. Done!!!!
-
 
 ---
 ### ArgoCD Setup
