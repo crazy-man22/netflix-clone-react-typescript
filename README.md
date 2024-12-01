@@ -135,6 +135,7 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   sudo systemctl status jenkins
   ```
   It runs on port 8080
+  
 4. Open Ports
   If you are using AWS Instance Security Bind your ports
   ```
@@ -147,6 +148,20 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
 6. Create a Pipeline and use it for further configuration
 7. Setup your Jenkins Pipeline for that you need to learn Jenkins
+
+> Jenkins Downloads
+- SonarQube Scanner
+- SonarQube Quality Gates
+- NodeJS
+- Docker
+- Pipeline Stage View
+- OWASP Dependecy Check
+
+> Jenkins Credentials
+- Email Credentials 
+- Docker Credentials
+- TMDB Secret File
+- SonarQube Administrator Token
 
 ---
 ### SonarCube Setup
@@ -168,6 +183,9 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   sudo firewall-cmd --reload
   ```
 5. Ready to GO!
+
+> Create a WebHook
+> Apply Admin Token in Jenkins
 
 ---
 ### Trivy Setup
