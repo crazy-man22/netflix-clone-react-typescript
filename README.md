@@ -253,4 +253,8 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   
 8. You can use ArgoCD
 
+> Add all the things to start K8s.
+> 
+> You need to first learn it!
+
 ---
