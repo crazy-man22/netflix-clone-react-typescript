@@ -226,7 +226,7 @@ Using Dockerhub image to use for K8s using from ArgoCD. After that integreating 
   ```
 2. Apply ArgoCD Manifets
   ```
-  kubectl apply -n argocd -f kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   ```
 3. Check ArgoCD Service
   ```
