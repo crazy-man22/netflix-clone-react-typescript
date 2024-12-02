@@ -7,6 +7,7 @@ spec:
     app: netflix-clone
   ports:
     - protocol: TCP
+      nodePort: 30948
       port: 80
-      targetPort: 30948
+      targetPort: 80
   type: LoadBalancer
