@@ -1,7 +1,8 @@
 import { Stack } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
-import { SliderUnstyledOwnProps } from "@mui/base/SliderUnstyled";
+// Changed this import based on the previous explanations
+import { SliderProps } from "@mui/material/Slider"; 
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import PlayerControlButton from "./PlayerControlButton";
@@ -41,7 +42,7 @@ export default function VolumeControllers({
   muted,
 }: {
   value: number;
-  handleVolume: SliderUnstyledOwnProps["onChange"];
+  handleVolume: (event: Event, value: number | number[]) => void; // Adjusted for clarity 
   handleVolumeToggle: React.MouseEventHandler<HTMLButtonElement>;
   muted: boolean;
 }) {
@@ -63,7 +64,7 @@ export default function VolumeControllers({
         max={100}
         value={value * 100}
         valueLabelDisplay="auto"
-        valueLabelFormat={(x: number) => x}
+        valueLabelFormat={(x: number) => x}  // Should work as-is
         onChange={handleVolume}
         sx={{ width: { xs: 60, sm: 80, md: 100 } }}
       />
